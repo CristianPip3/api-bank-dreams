@@ -89,6 +89,7 @@
     "delay": 1000
   },
   "standard": {
+    "env": [ "mocha" ],
     "ignore": [
       "/public/docs"
     ],

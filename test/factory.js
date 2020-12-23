@@ -5,7 +5,6 @@ const { curry } = require('ramda')
 
 // we will call each repo on thier test  cases  here we will just compose the items.
 
-// eslint-disable-next-line no-undef
 const models = name => app.resolve('database').models[name]
 
 const repository = curry((repo, model) => {

@@ -6,7 +6,7 @@ const compression = require('compression')
 const { Router } = require('express')
 const { partialRight } = require('ramda')
 
-// const controller = require('./utils/create_controller')
+const controller = require('./utils/createController')
 const httpLogger = require('./middlewares/http_logger')
 const errorHandler = require('./middlewares/error_handler')
 
@@ -44,7 +44,7 @@ module.exports = ({ config, logger }) => {
    * The `controllerPath` is relative to the `interfaces/http` folder
    */
 
-  // apiRouter.use('/', controller('index'))
+  apiRouter.use('/', controller('index'))
   router.use(`/api/v${config.version}`, apiRouter)
   router.get('/', (req, res) => {
     res.json({

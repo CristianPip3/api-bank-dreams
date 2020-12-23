@@ -10,6 +10,12 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018
   },
+  globals: {
+    expect: "readonly",
+    request: "readonly",
+    config: "readonly",
+    app: "readonly"
+  },
   // add your custom rules here
   rules: {
     // allow async-await
