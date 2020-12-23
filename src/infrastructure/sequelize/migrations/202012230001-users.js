@@ -8,6 +8,9 @@ module.exports = {
         primaryKey: true,
         allowNull: false
       },
+      firstName: {
+        type: Sequelize.STRING
+      },
       password: {
         type: Sequelize.STRING,
         allowNull: false

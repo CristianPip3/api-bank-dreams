@@ -9,6 +9,7 @@ module.exports = () => {
   const populateUser = compose(
     map((index) => ({
       id: UUID_USERS[index],
+      firstName: faker.name.firstName(),
       password: password,
       isVerified: faker.random.boolean(),
       isDeleted: faker.random.boolean()
