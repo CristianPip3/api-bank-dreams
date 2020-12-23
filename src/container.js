@@ -7,6 +7,7 @@ const config = require('../config')
 const logger = require('./infrastructure/logging/logger')
 const database = require('./infrastructure/database')
 const repository = require('./infrastructure/repositories')
+const response = require('./infrastructure/support/response')
 
 // CONTAINER OF ELEMENTS
 const container = createContainer()
@@ -18,6 +19,7 @@ container.register({
   router: asFunction(router).singleton(),
   logger: asFunction(logger).singleton(),
   database: asFunction(database).singleton(),
+  response: asFunction(response).singleton(),
   config: asValue(config),
   repository: asFunction(repository).singleton()
 })
