@@ -8,6 +8,7 @@ use(sinonChai)
 
 describe('App -> User -> Put', () => {
   const body = {
+    identity: '1061749',
     firstName: 'test',
     password: 'pass'
   }

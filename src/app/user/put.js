@@ -15,6 +15,7 @@ module.exports = ({ userRepository }) => {
         return userRepository.findOne({
           attributes: [
             'id',
+            'identity',
             'firstName'
           ],
           where: { id }

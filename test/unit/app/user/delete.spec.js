@@ -8,6 +8,7 @@ use(sinonChai)
 
 describe('App -> User -> Delete', () => {
   const body = {
+    identity: '1061749',
     firstName: 'test'
   }
   let methodDestroy

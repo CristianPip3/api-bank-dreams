@@ -10,12 +10,14 @@ describe('Routes: GET UsersEntity', () => {
       .destroy({ where: {} })
       .then(() =>
         userRepository.create({
+          identity: '789fe084-a557-40ac-886e-7c2485cf9b2c',
           firstName: 'Test',
           password: 'pass'
         })
       )
       .then(() =>
         userRepository.create({
+          identity: '889fe084-a557-40ac-886e-7c2485cf9b2c',
           firstName: 'John',
           password: 'pass'
         })

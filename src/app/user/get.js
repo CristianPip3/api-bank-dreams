@@ -11,7 +11,7 @@ module.exports = ({ userRepository }) => {
       .then(() =>
         userRepository.getAll({
           attributes: [
-            'id',
+            'identity',
             'firstName',
             'isVerified'
           ]

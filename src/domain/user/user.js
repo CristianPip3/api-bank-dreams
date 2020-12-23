@@ -4,6 +4,7 @@ const { cleanData } = require('../helper')
 
 const User = t.struct({
   id: t.maybe(t.String),
+  identity: t.String,
   firstName: t.String,
   password: t.maybe(t.String),
   isVerified: t.maybe(t.Boolean),

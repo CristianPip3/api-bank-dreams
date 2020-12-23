@@ -9,6 +9,7 @@ module.exports = ({ userRepository }) => {
         userRepository.findOne({
           attributes: [
             'id',
+            'identity',
             'firstName'
           ],
           where: { id }

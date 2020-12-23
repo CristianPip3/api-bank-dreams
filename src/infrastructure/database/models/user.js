@@ -11,6 +11,12 @@ module.exports = function (sequelize, DataTypes) {
         unique: true,
         allowNull: false
       },
+      identity: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        primaryKey: true
+      },
       firstName: {
         type: DataTypes.STRING
       },

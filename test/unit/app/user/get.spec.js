@@ -5,6 +5,7 @@ describe('App -> User -> Get', () => {
   let useCase
   const mockData = [
     {
+      identity: '1061749',
       firstName: 'Developer'
     }
   ]

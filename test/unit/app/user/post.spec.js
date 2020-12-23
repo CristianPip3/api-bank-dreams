@@ -17,6 +17,7 @@ describe('App -> User -> Post', () => {
 
     it('should create the records and list the data and append the default password', async () => {
       const body = {
+        identity: '789fe084-a557-40ac-886e-7c2485cf9b2c',
         firstName: 'test'
       }
       const objUser = await useCase.create({ body })
@@ -26,6 +27,7 @@ describe('App -> User -> Post', () => {
 
   describe('Fail path', () => {
     const body = {
+      identity: '789fe084-a557-40ac-886e-7c2485cf9b2c',
       firstName: 'test'
     }
 

@@ -10,6 +10,7 @@ module.exports = () => {
     map((index) => ({
       id: UUID_USERS[index],
       firstName: faker.name.firstName(),
+      identity: faker.random.uuid(),
       password: password,
       isVerified: faker.random.boolean(),
       isDeleted: faker.random.boolean()
