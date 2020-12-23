@@ -12,7 +12,8 @@
     "seed:undo": "cross-env NODE_ENV=development NODE_PATH=. sequelize db:seed:undo:all --seeders-path=./src/infrastructure/sequelize/seeders/development",
     "test": "standard --verbose | snazzy && npm run db:refresh-test && yarn run test:cov",
     "db:refresh-test": "cross-env NODE_PATH=. NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate ",
-    "test:cov": "cross-env NODE_PATH=. NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- --exit"
+    "test:cov": "cross-env NODE_PATH=. NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- --exit",
+    "start:docs": "docsify serve docs"
   },
   "keywords": [
     "Node",
@@ -58,7 +59,7 @@
     "commitizen": "^4.1.2",
     "coveralls": "^3.1.0",
     "cz-conventional-changelog": "^3.2.0",
-    "docsify-cli": "^4.4.1",
+    "docsify-cli": "^4.4.2",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
@@ -89,7 +90,9 @@
     "delay": 1000
   },
   "standard": {
-    "env": [ "mocha" ],
+    "env": [
+      "mocha"
+    ],
     "ignore": [
       "/public/docs"
     ],

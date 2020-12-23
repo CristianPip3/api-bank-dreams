@@ -21,8 +21,25 @@ module.exports = ({ userRepository }) => {
         throw new Error(error)
       })
   }
+  const allProducts = () => {
+    return Promise.resolve()
+      .then(() =>
+        userRepository.getAll({
+          attributes: [
+            'identity',
+            'firstName',
+            'isVerified'
+          ],
+          include: ['products']
+        })
+      )
+      .catch(error => {
+        throw new Error(error)
+      })
+  }
 
   return {
-    all
+    all,
+    allProducts
   }
 }

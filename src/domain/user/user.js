@@ -9,6 +9,7 @@ const User = t.struct({
   password: t.maybe(t.String),
   isVerified: t.maybe(t.Boolean),
   isDeleted: t.maybe(t.Boolean),
+  products: t.maybe(t.list(t.Object)),
   createdAt: t.maybe(t.Date),
   updatedAt: t.maybe(t.Date)
 })

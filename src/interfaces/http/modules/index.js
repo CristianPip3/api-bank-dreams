@@ -1,4 +1,5 @@
 const swaggerJSDoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express')
 const Status = require('http-status')
 const { Router } = require('express')
 
@@ -60,9 +61,7 @@ module.exports = () => {
     res.status(Status.OK).json({ status: 'API working' })
   })
 
-  router.get('/swagger.json', (req, res) => {
-    res.status(Status.OK).json(swaggerSpec)
-  })
-
+  router.use('/api-docs', swaggerUi.serve)
+  router.get('/api-docs', swaggerUi.setup(swaggerSpec))
   return router
 }

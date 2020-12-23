@@ -16,21 +16,14 @@ module.exports = ({
    *       id:
    *         type: string
    *         format: uuid
+   *       identity:
+   *          type: string
    *       firstName:
    *         type: string
-   *       lastName:
-   *         type: string
-   *       middleName:
-   *         type: string
-   *       email:
-   *         type: string
-   *       roleId:
-   *         type: number
+   *       isVerified:
+   *         type: boolean
    *       isDeleted:
-   *         type: number
-   *       createdBy:
-   *         type: string
-   *         format: uuid
+   *         type: boolean
    */
 
   // router.use(auth.authenticate())
@@ -56,7 +49,7 @@ module.exports = ({
    */
   router.get('/', (req, res) => {
     getUseCase
-      .all(req, res)
+      .allProducts(req, res)
       .then(data => {
         res.status(Status.OK).json(Success(data))
       })

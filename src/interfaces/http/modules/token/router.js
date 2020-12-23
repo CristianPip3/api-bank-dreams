@@ -3,6 +3,16 @@ const { Router } = require('express')
 
 module.exports = ({ postUseCase, logger, response: { Success, Fail } }) => {
   const router = Router()
+  /**
+   * @swagger
+   * definitions:
+   *   auth:
+   *     properties:
+   *       identity:
+   *         type: string
+   *       password:
+   *         type: string
+   */
 
   /**
    * @swagger
