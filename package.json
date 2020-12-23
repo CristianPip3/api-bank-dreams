@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_PATH=. NODE_ENV=production node index.js",
-    "dev": "cross-env NODE_PATH=. NODE_ENV=development nodemon"
+    "dev": "cross-env NODE_PATH=. NODE_ENV=development nodemon",
+    "migrate:dev": "NODE_ENV=development sequelize db:migrate",
+    "migrate:undo": "NODE_ENV=development sequelize db:migrate:undo:all",
+    "seed:dev": "cross-env NODE_ENV=development NODE_PATH=. sequelize db:seed:all --seeders-path=./src/infrastructure/sequelize/seeders/development",
+    "seed:undo": "cross-env NODE_ENV=development NODE_PATH=. sequelize db:seed:undo:all --seeders-path=./src/infrastructure/sequelize/seeders/development"
   },
   "keywords": [
     "Node",
@@ -33,9 +37,10 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
     "prettier": "^2.2.1",
     "ramda": "^0.27.1",
-    "sequelize": "^6.3.5",
+    "sequelize": "^5.22.3",
     "swagger-jsdoc": "^6.0.0-rc.5",
     "swagger-ui-express": "^4.1.6",
     "tcomb": "^3.2.29",
