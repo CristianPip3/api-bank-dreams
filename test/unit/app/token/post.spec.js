@@ -61,7 +61,6 @@ describe('App -> Token -> Post', () => {
       } catch (e) {
         error = e.message
       }
-      console.log(error)
       expect(error).to.equal('Error')
     })
   })

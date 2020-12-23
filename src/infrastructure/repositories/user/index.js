@@ -28,6 +28,37 @@ module.exports = ({ model }) => {
       .catch(error => {
         throw new Error(error)
       })
+  const getAccountVerified = (...args) => {
+    args[0].include = [
+      {
+        required: false,
+        model: model.sequelize.models.products,
+        as: 'products',
+        attributes: ['name', 'balance'],
+        where: {
+          isVerified: true,
+          isDeleted: false
+        },
+        include: [
+          {
+            required: true,
+            model: model.sequelize.models.types_product,
+            as: 'typeProduct',
+            attributes: ['name'],
+            where: {
+              isVerified: true,
+              isDeleted: false
+            }
+          }
+        ]
+      }
+    ]
+    return model.findOne(...args)
+      .then(toEntity)
+      .catch(error => {
+        throw new Error(error)
+      })
+  }
 
   const findOne = async (...args) => {
     const result = await model.findOne(...args)
@@ -37,17 +68,9 @@ module.exports = ({ model }) => {
       throw new Error('User Not Found invalid')
     }
   }
-  const findMe = async (...args) => {
-    const result = await model.findOne(...args)
-    if (result) {
-      return toEntity(result.dataValues)
-    } else {
-      throw new Error('User Not Found invalid')
-    }
-  }
   const isExist = (...args) =>
     model.findOne(...args)
-      .then(entity => entity !== null)
+      .then(entity => toEntity(entity) !== null)
 
   const validatePassword = endcodedPassword => password => comparePassword(password, endcodedPassword)
 
@@ -55,11 +78,11 @@ module.exports = ({ model }) => {
 
   return {
     getAll,
+    getAccountVerified,
     create,
     update,
     findById,
     findOne,
-    findMe,
     isExist,
     validatePassword,
     destroy

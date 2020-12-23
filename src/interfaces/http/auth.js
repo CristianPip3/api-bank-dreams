@@ -12,7 +12,7 @@ module.exports = ({ config, repository: { userRepository } }) => {
 
   const strategy = new Strategy(params, (payload, done) => {
     userRepository
-      .findMe({
+      .findOne({
         where: {
           id: payload.id,
           isVerified: true,

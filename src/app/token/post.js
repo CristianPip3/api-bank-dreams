@@ -25,10 +25,6 @@ module.exports = ({ userRepository, webToken, logger }) => {
     }).catch(error => {
       throw new Error(error)
     })
-    if (!userCredentials) {
-      logger.error('User no found or is deleted or is not verified')
-      throw new Error('User no Found')
-    }
     const validatePass = userRepository.validatePassword(userCredentials.password)
 
     if (!validatePass(credentials.password)) {

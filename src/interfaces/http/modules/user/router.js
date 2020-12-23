@@ -4,6 +4,7 @@ const { Router } = require('express')
 module.exports = ({
   getUseCase,
   logger,
+  auth,
   response: { Success, Fail }
 }) => {
   const router = Router()
@@ -26,7 +27,7 @@ module.exports = ({
    *         type: boolean
    */
 
-  // router.use(auth.authenticate())
+  router.use(auth.authenticate())
 
   /**
    * @swagger
@@ -49,7 +50,7 @@ module.exports = ({
    */
   router.get('/', (req, res) => {
     getUseCase
-      .allProducts(req, res)
+      .all(req, res)
       .then(data => {
         res.status(Status.OK).json(Success(data))
       })

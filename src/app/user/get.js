@@ -21,16 +21,17 @@ module.exports = ({ userRepository }) => {
         throw new Error(error)
       })
   }
-  const allProducts = () => {
+  const getAccountUser = (req) => {
     return Promise.resolve()
       .then(() =>
-        userRepository.getAll({
+        userRepository.getAccountVerified({
           attributes: [
             'identity',
-            'firstName',
-            'isVerified'
+            'firstName'
           ],
-          include: ['products']
+          where: {
+            id: req.user.id
+          }
         })
       )
       .catch(error => {
@@ -40,6 +41,6 @@ module.exports = ({ userRepository }) => {
 
   return {
     all,
-    allProducts
+    getAccountUser
   }
 }
