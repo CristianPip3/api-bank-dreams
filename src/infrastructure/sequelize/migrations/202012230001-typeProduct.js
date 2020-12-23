@@ -1,7 +1,7 @@
 'use strict'
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    return queryInterface.createTable('types_products', {
+    return queryInterface.createTable('types_product', {
       id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
@@ -34,6 +34,6 @@ module.exports = {
     })
   },
   down: function (queryInterface) {
-    return queryInterface.dropTable('types_products')
+    return queryInterface.dropTable('types_product')
   }
 }
