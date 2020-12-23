@@ -1,8 +1,8 @@
 /**
- * function for getter user.
+ * this file will hold all the remove use-case for user domain
  */
 module.exports = ({ userRepository }) => {
-  // code for delete a item
+  // code for delete logic a item
   const remove = ({ id }) => {
     return Promise.resolve()
       .then(() =>
@@ -14,7 +14,7 @@ module.exports = ({ userRepository }) => {
           where: { id }
         }).then((response) =>
           userRepository.update({
-            isDeleted: 1
+            isDeleted: true
           },
           {
             where: { id: response.id }

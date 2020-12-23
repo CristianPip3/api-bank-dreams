@@ -1,9 +1,9 @@
 /**
- * this file will hold all the get use-case for user domain
+ * this file will hold all the post use-case for user domain
  */
 const { User } = require('src/domain/user')
 /**
- * function for getter user.
+ * function for create user.
  */
 module.exports = ({ userRepository }) => {
   // code for create a item

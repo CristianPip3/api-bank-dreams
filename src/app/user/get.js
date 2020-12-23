@@ -1,8 +1,11 @@
 /**
- * function for getter user.
+ * this file will hold all the get use-case for user domain
  */
+
 module.exports = ({ userRepository }) => {
-  // code for getting all the items
+/**
+ * function for getter all user.
+ */
   const all = () => {
     return Promise.resolve()
       .then(() =>
