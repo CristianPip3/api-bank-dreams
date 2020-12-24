@@ -8,6 +8,7 @@ const Product = t.struct({
   typeProductId: t.maybe(t.String),
   name: t.maybe(t.String),
   balance: t.maybe(t.Number),
+  avg: t.maybe(t.String),
   typeProduct: t.maybe(t.Object),
   transactions: t.maybe(t.list(t.Object)),
   isVerified: t.maybe(t.Boolean),

@@ -75,6 +75,43 @@ module.exports = ({
 
   /**
    * @swagger
+   * /products/avg:
+   *   get:
+   *     tags:
+   *       - Products
+   *     description: Returns product by id with transactions
+   *     security:
+   *       - bearerAuth: []
+   *     parameters:
+   *       - name: id
+   *         in: path
+   *         required: true
+   *         description: Product's ID to get
+   *         type: string
+   *     responses:
+   *       200:
+   *         description: One product with array transactions(optional)
+   *         schema:
+   *           $ref: '#/definitions/product'
+   *           items:
+   *             $ref: '#/definitions/product'
+   *       401:
+   *        $ref: '#/responses/Unauthorized'
+   */
+  router.get('/avg/:id', (req, res) => {
+    getUseCase
+      .getAvgTransactions(req)
+      .then(data => {
+        res.status(Status.OK).json(Success(data))
+      })
+      .catch(error => {
+        logger.error(error) // we still need to log every error for debugging
+        res.status(Status.BAD_REQUEST).json(Fail(error.message))
+      })
+  })
+
+  /**
+   * @swagger
    * /products:
    *   post:
    *     tags:
