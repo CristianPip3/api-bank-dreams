@@ -37,7 +37,7 @@ module.exports = ({
    *       - Users
    *     description: Returns a list of users
    *     security:
-   *       - JWT: []
+   *       - bearerAuth: []
    *     responses:
    *       200:
    *         description: An array of users

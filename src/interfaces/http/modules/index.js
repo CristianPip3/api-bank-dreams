@@ -11,12 +11,12 @@ module.exports = () => {
     info: {
       title: 'Node  API Bank Dreams',
       version: '1.0.0',
-      description: 'Available REST Endpoints of Node DDD RESTFUL API'
+      description: 'Available REST Endpoints of Node DDD RESTFULL API'
     },
-    host: `${process.env.API_SWAGGER}:${process.env.PORT}/api/${process.env.APP_VERSION}`,
+    host: `${process.env.BASE_URL}:${process.env.PORT}/api/v${process.env.APP_VERSION}`,
     basePath: '/',
     securityDefinitions: {
-      JWT: {
+      Bearer: {
         description: '',
         type: 'apiKey',
         name: 'Authorization',

@@ -16,7 +16,7 @@ module.exports = ({ postUseCase, logger, response: { Success, Fail } }) => {
 
   /**
    * @swagger
-   * /singin:
+   * /auth/signin:
    *   post:
    *     tags:
    *       - Authentication
