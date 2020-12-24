@@ -12,8 +12,7 @@
     "seed:undo": "cross-env NODE_ENV=development NODE_PATH=. sequelize db:seed:undo:all --seeders-path=./src/infrastructure/sequelize/seeders/development",
     "test": "standard --verbose | snazzy && npm run db:refresh-test && yarn run test:cov",
     "db:refresh-test": "cross-env NODE_PATH=. NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate ",
-    "test:cov": "cross-env NODE_PATH=. NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- --exit",
-    "start:docs": "docsify serve docs"
+    "test:cov": "cross-env NODE_PATH=. NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- --exit"
   },
   "keywords": [
     "Node",

@@ -45,8 +45,9 @@ module.exports = ({ config, logger }) => {
    */
 
   apiRouter.use('/', controller('index'))
-  apiRouter.use('/users', controller('user').router)
   apiRouter.use('/auth', controller('token').router)
+  apiRouter.use('/users', controller('user').router)
+  apiRouter.use('/products', controller('product').router)
   router.use(`/api/v${config.version}`, apiRouter)
   router.get('/', (req, res) => {
     res.json({

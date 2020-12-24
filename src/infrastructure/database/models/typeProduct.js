@@ -28,8 +28,8 @@ module.exports = function (sequelize, DataTypes) {
     { underscored: true }
   )
   TypeProduct.associate = models => {
-    TypeProduct.hasOne(models.products, {
-      foreignKey: 'id',
+    TypeProduct.hasMany(models.products, {
+      foreignKey: 'typeProductId',
       as: 'product'
     })
   }

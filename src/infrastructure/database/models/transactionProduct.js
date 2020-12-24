@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         defaultValue: ''
       },
-      status: {
+      state: {
         type: DataTypes.STRING,
         defaultValue: true
       },
