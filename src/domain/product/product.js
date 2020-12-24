@@ -7,11 +7,11 @@ const Product = t.struct({
   userId: t.maybe(t.String),
   typeProductId: t.maybe(t.String),
   name: t.maybe(t.String),
+  balance: t.maybe(t.Number),
   typeProduct: t.maybe(t.Object),
   transactions: t.maybe(t.list(t.Object)),
   isVerified: t.maybe(t.Boolean),
   isDeleted: t.maybe(t.Boolean),
-  products: t.maybe(t.list(t.Object)),
   createdAt: t.maybe(t.Date),
   updatedAt: t.maybe(t.Date)
 })

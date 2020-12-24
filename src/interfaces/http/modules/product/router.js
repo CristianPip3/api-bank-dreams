@@ -72,5 +72,46 @@ module.exports = ({
         res.status(Status.BAD_REQUEST).json(Fail(error.message))
       })
   })
+
+  /**
+   * @swagger
+   * /products:
+   *   post:
+   *     tags:
+   *       - Product
+   *     description: Create new product
+   *     security:
+   *       - JWT: []
+   *     produces:
+   *       - application/json
+   *     parameters:
+   *       - name: body
+   *         description: Product's Entity
+   *         in: body
+   *         required: true
+   *         type: string
+   *         schema:
+   *           $ref: '#/definitions/product'
+   *     responses:
+   *       200:
+   *         description: Successfully Created
+   *         schema:
+   *           $ref: '#/definitions/product'
+   *       401:
+   *         $ref: '#/responses/Unauthorized'
+   *       400:
+   *         $ref: '#/responses/BadRequest'
+   */
+  router.post('/', (req, res) => {
+    postUseCase
+      .create({ body: req.body })
+      .then(data => {
+        res.status(Status.OK).json(Success(data))
+      })
+      .catch(error => {
+        logger.error(error) // we still need to log every error for debugging
+        res.status(Status.BAD_REQUEST).json(Fail(error.message))
+      })
+  })
   return router
 }
