@@ -52,30 +52,23 @@ module.exports = ({ productRepository }) => {
   /**
    * function for getter  average product by Id.
    */
-  const getAvgTransactions = (req) => {
-    return Promise.resolve()
-      .then(() => {
-        const id = req.params.id
-        const userId = req.user.id
-        if (!id) {
-          throw new Error('Id required')
-        }
-        console.log(id)
-        return productRepository.averagePriceTransactionsProduct({
-          attributes: [
-            'id',
-            'name'
-          ],
-          where: {
-            id,
-            userId
-          },
-          group: ['products.id']
-        })
-      })
-      .catch(error => {
-        throw new Error(error)
-      })
+  const getAvgTransactions = async (req) => {
+    const id = req.params.id
+    const userId = req.user.id
+    if (!id) {
+      throw new Error('Id required')
+    }
+    return productRepository.averagePriceTransactionsProduct({
+      attributes: [
+        'id',
+        'name'
+      ],
+      where: {
+        id,
+        userId
+      },
+      group: ['products.id']
+    })
   }
 
   return {

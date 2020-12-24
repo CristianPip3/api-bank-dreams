@@ -6,7 +6,7 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - "4000:4000"
+      - "4000:5000"
     depends_on:
       - postgres
       - redis
@@ -18,7 +18,7 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
       - ./postgres-initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
     ports:
-      - "5432:5432"
+      - "5533:5533"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password123
